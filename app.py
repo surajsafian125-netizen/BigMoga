@@ -19,6 +19,16 @@ def subscribe():
 
     # 3. Show the success page
     return render_template('success.html', name=name, email_address=email)
-
+# A secret route to view the file
+@app.route('/check')
+def check_list():
+    try:
+        # Open the file in 'read' mode
+        with open('subscribers.txt', 'r') as file:
+            content = file.read()
+        # Replace newlines with HTML breaks so it looks nice
+        return f"<h1>Subscriber List:</h1><br><pre>{content}</pre>"
+    except FileNotFoundError:
+        return "No subscribers yet (or file was lost)."
 if __name__ == '__main__':
     app.run(debug=True)
