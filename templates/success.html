@@ -1,0 +1,77 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <title>You're In!</title>
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;600&display=swap" rel="stylesheet">
+    
+    <style>
+      /* Same Background as Home */
+      body {
+        background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+        font-family: 'Poppins', sans-serif;
+        height: 100vh;
+        margin: 0;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        color: #333;
+      }
+
+      /* Same Card Style */
+      .container {
+        background-color: white;
+        padding: 50px;
+        border-radius: 15px;
+        box-shadow: 0 10px 25px rgba(0,0,0,0.2);
+        width: 350px;
+        text-align: center;
+      }
+
+      h1 { color: #6c5ce7; margin-bottom: 10px; } /* Purple Text */
+      p { color: #ca1919; line-height: 1.6; }
+      
+      /* A nice button to go back */
+      a {
+        display: inline-block;
+        margin-top: 20px;
+        text-decoration: none;
+        color: #1b7e20;
+        font-weight: bold;
+        border: 2px solid #ca6d2e;
+        padding: 10px 20px;
+        border-radius: 25px;
+        transition: all 0.3s;
+      }
+
+      a:hover {
+        background-color: #db55db;
+        color: rgb(173, 233, 34);
+      }
+    </style>
+  </head>
+  <body>
+
+    <div class="container">
+      <div style="font-size: 50px;">🎉</div>
+      
+      <h1>Welcome, {{ name }}!</h1>
+      
+      <p>You have successfully joined the list.</p>
+      <p>We sent a confirmation to:<br><strong>{{ email_address }}</strong></p>
+      
+      <a href="/">Return Home</a>
+    </div>
+
+  </body><div style="font-size: 50px;">🎉</div>
+      
+      <h1>Welcome, {{ name }}!</h1>
+      
+      <p>You have successfully joined the list.</p>
+      <p>As a thank you, here is your exclusive image:</p>
+      
+      <a href="{{ url_for('static', filename='reward.jpg') }}" target="_blank" style="background-color: #ff7675; border-color: #ff7675; color: white;">
+        🎁 Click to View Image
+      </a>
+
+      <br><br> <a href="/">Return Home</a>
+</html>
