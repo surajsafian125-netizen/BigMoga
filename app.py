@@ -8,15 +8,18 @@ def home():
 
 @app.route('/subscribe', methods=['POST'])
 def subscribe():
-    # 1. Grab the data from the form
-    name = request.form['first_name']
-    email = request.form['email']
+  @app.route('/subscribe', methods=['POST'])
+def subscribe():
+    # ✅ THE FIX: Match the HTML names
+    name = request.form.get('name_input')
+    email = request.form.get('email_input')
 
-    # 2. Open the "notebook" file and write the data
-    # 'a' stands for "Append" (add to the end)
+    # Save to file
     with open('subscribers.txt', 'a') as file:
-        file.write(name + " | " + email + "\n")
+        file.write(f"{name} | {email}\n")
 
+    # Show success page
+    return render_template('success.html', name=name)
     # 3. Show the success page
     return render_template('success.html', name=name, email_address=email)
 # A secret route to view the file
@@ -31,4 +34,5 @@ def check_list():
     except FileNotFoundError:
         return "No subscribers yet (or file was lost)."
 if __name__ == '__main__':
+
     app.run(debug=True)
